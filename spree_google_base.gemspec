@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency "solidus", [">= 1.0.6", "< 2"]
+  s.add_dependency "solidus", [">= 2"]
 
   s.add_development_dependency 'rspec-rails',  '~> 2.7'
   s.add_development_dependency 'sqlite3'
