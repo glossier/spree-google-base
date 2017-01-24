@@ -12,7 +12,7 @@ module Spree
     end
 
     def google_base_availability
-      if warehouse_count_on_hand> 0
+      if warehouse_count_on_hand > 0
         "in stock"
       else
         "out of stock"
@@ -53,6 +53,10 @@ module Spree
 
     def google_base_item_group_id
       product.slug
+    end
+
+    def google_base_item_color 
+      option_values.first.name if option_values && option_values.first
     end
 
     private
