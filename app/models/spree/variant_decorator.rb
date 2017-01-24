@@ -56,9 +56,7 @@ module Spree
     end
 
     def google_base_item_color 
-      if option_values
-        option_values.first.name if option_values.first
-      end
+      option_values.first.name if option_values && option_values.first
     end
 
     private
