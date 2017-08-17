@@ -4,7 +4,7 @@ module Spree
       # description is limited to 5000 characters
       # see https://support.google.com/merchants/answer/188494 for details
       #description[0...5000]
-      self.product.excerpt
+      self.product.content(:excerpt)
     end
 
     def google_base_condition
@@ -55,7 +55,7 @@ module Spree
       product.slug
     end
 
-    def google_base_item_color 
+    def google_base_item_color
       option_values.first.name if option_values && option_values.first
     end
 
