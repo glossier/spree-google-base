@@ -62,8 +62,11 @@ module Spree
     private
 
     def warehouse_count_on_hand
-      warehouse_id = stock_locations.find_by(name: 'US Warehouse').id
-      stock_items.where(stock_location_id: warehouse_id).map(&:count_on_hand).sum
+      stock_items.where(stock_location_id: current_warehouse_id).map(&:count_on_hand).sum
+    end
+
+    def current_warehouse_id
+      stock_locations.find_by(name: Rails.application.secrets.fetch(:us_warehouse_name, 'US Warehouse')).id
     end
   end
 end
