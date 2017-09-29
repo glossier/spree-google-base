@@ -62,12 +62,8 @@ module Spree
     private
 
     def warehouse_count_on_hand
-      warehouse_id = stock_locations.find_by(name: 'Warehouse').id
-      for stock_item in stock_items
-        if stock_item.stock_location_id == warehouse_id
-          return stock_item.count_on_hand
-        end
-      end
+      warehouse_id = stock_locations.find_by(name: 'US Warehouse').id
+      stock_items.where(stock_location_id: warehouse_id).map(&:count_on_hand).sum
     end
   end
 end
