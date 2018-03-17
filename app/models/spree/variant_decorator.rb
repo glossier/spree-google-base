@@ -40,7 +40,7 @@ module Spree
     end
 
     def google_base_price
-      product.price
+      "#{display_price} #{display_currency}"
     end
 
     def google_base_image_size
