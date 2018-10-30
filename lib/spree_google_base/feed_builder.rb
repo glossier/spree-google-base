@@ -84,7 +84,7 @@ module SpreeGoogleBase
             variants = Spree::Variant.find_each()
             variants.each do |variant|
               if (variant.product_id == product.id && !variant.gtin.nil?) &&
-                 (product.hide_for_customer == false && variant.hidden == false) &&
+                 (product.restricted == false && variant.hidden == false) &&
                  (variant.try(:stores).empty? || variant.try(:stores).include?(I18n.store))
                 build_product(xml, product, variant)
               end
